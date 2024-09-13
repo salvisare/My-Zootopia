@@ -9,12 +9,14 @@ def restructure_data(data):
   output = ""  # define an empty string
   for item in data:
     output += "<li class='cards__item'>"
+    output += "<div class='card__title'>"
     if "name" in item:
       output += f"Name: {item["name"]}\n"
     else:
       # If no characteristics, add a blank line
       output += "Name: N/A\n"
-    output += "<br/>"
+    output += "</div>"
+    output += "<p class='card__text'>"
     if 'characteristics' in item:
       characteristics = item["characteristics"]
       if "diet" in characteristics:
@@ -38,6 +40,7 @@ def restructure_data(data):
       else:
         # If no characteristics, add a blank line
         output += "Type: N/A\n\n"
+    output += "</p>"
     output += "</li>"
 
     print("")
